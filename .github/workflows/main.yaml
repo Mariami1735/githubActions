@@ -1,8 +1,25 @@
-name: hello-world
-'on': push
+name: Push to GitHub
+on:
+  push:
+    branches:
+    - main
+
 jobs:
-  my-job:
+  push-changes:
+    name: push changes to Github
     runs-on: ubuntu-latest
+
     steps:
-    - name: my-step
-      run: echo "Hello World!"
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: COnfigure Git
+      run: |
+      git config --global user.email "tsamalashvilimariam2@gmail.com"
+      git config --global user.email "Mariami1735"
+
+    - name: Commit and push changes
+      run: |
+      git add .
+      git commit -m "new commit"
+      git push origin main 
