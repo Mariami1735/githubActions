@@ -1,25 +1,21 @@
 name: Push to GitHub
-on:
+'on':
   push:
     branches:
     - main
-
 jobs:
   push-changes:
-    name: push changes to Github
+    name: Push changes to GitHub
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-
-    - name: COnfigure Git
+    - name: Configure Git
       run: |
-      git config --global user.email "tsamalashvilimariam2@gmail.com"
-      git config --global user.email "Mariami1735"
-
+        git config --global user.email "tsamalashvilimariam2@gmail.com"
+        git config --global user.name "Mariami1735"
     - name: Commit and push changes
       run: |
-      git add .
-      git commit -m "new commit"
-      git push origin main 
+        git add .
+        git commit -m "Automated commit by GitHub Actions"
+        git push origin main  # Replace 'main' with your branch name
